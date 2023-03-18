@@ -7,6 +7,9 @@ getgenv().AutoOpen = false;
 local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://232127604"
 
+local Boar = Instance.new("Boar",game:GetService("SoundService"))
+Boar.SoundId = "rbxassetid://12822316568"
+
 local Main = Library.CreateLib("SCRIPT BY ZETOIRQUE", "Synapse")
 
 local RealMainTab = Main:NewTab("Main")
@@ -71,17 +74,26 @@ task.spawn(function()
 
     while AutoOpen == true do
 
-        if game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Topbar.TxT.Text == "Fruit : Dough" or game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Topbar.TxT.Text == "Fruit : TSRrubber"  or game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Topbar.TxT.Text == "Fruit : Dragon" or game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Topbar.TxT.Text == "Fruit : TSRrubber" then
+        if game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Gems.Title.TxT.Text >=50 then
 
-            print("working")
+            if game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Topbar.TxT.Text == "Fruit : Dough" or game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Topbar.TxT.Text == "Fruit : TSRrubber"  or game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Topbar.TxT.Text == "Fruit : Dragon" or game:GetService("Players").LocalPlayer.PlayerGui.UI.Spin.Topbar.TxT.Text == "Fruit : TSRrubber" then
+
+                print("working")
+
+            else
+
+                local args = {[1] = "FruitsHandler",[2] = "Spin",[3] = {}}
+                game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+
+            end
 
         else
 
-            local args = {[1] = "FruitsHandler",[2] = "Spin",[3] = {}}
-            game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+            Boar:Play()
 
         end
         wait(6)
+
 
     end
 
