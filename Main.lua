@@ -7,7 +7,7 @@ getgenv().AutoOpen = false;
 local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://232127604"
 
-local Boar = Instance.new("Boar",game:GetService("SoundService"))
+local Boar = Instance.new("Sound",game:GetService("SoundService"))
 Boar.SoundId = "rbxassetid://12822316568"
 
 local Main = Library.CreateLib("SCRIPT BY ZETOIRQUE", "Synapse")
